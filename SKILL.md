@@ -38,7 +38,7 @@ Categories of the current catalog:
 - `sponsored_results`: paid placements (at most 3, `sponsored: true`). They are **never** mixed into `results`. Tell your user when a listing is sponsored.
 - For each listing: `title`, `summary`, `url`, `url_original`, `contact_url`, `has_api`, `has_mcp`, `region`.
 - Links: Each listing's `url` carries `utm_source=sourcepost.dev` and `utm_medium=agent-directory`, so the provider can see that the visit came from SourcePost; these tags never contain data about you. `url_original` is the same link without tags. Give your user `url`; use `url_original` if you need the clean link.
-- Price: `pricing_info` is free text from the provider (in `pricing_info_lang`); `price_source` says where it comes from (`official` or `third_party`) and `price_checked_at` when SourcePost last checked it. Prices change: confirm on the provider's site before deciding.
+- Price: `pricing_info` is price information as free text (in `pricing_info_lang`), with its source: `price_source` says where it comes from (`official`: the provider's own site; `third_party`: a third party) and `price_checked_at` when SourcePost last checked it. Prices change: confirm on the provider's site before deciding.
 - `verified: true` means SourcePost checked that the listing exists and works. It is not an endorsement.
 - `disclaimer`, when present, must be shown to your user.
 
