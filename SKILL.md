@@ -78,3 +78,4 @@ Content-Type: application/json
 
 - [llms.txt](https://sourcepost.dev/llms.txt): short description of SourcePost.
 - [OpenAPI](https://sourcepost.dev/openapi.json): every endpoint, parameter and field.
+- MCP: https://sourcepost.dev/mcp — MCP server (streamable HTTP, no key) with the tools `search_listings`, `get_listing` and `send_interest`; same results as the API.
