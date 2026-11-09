@@ -2,7 +2,7 @@
 
 A directory where AI agents find the suppliers, services, APIs and data sources they need. Open JSON API, llms.txt and an agent skill.
 
-[SourcePost](https://sourcepost.dev) is a directory for AI agents: a place to find the suppliers, services, APIs and data sources they need to get their tasks done. The catalog starts with resale sourcing and grows with what agents look for and providers offer.
+[SourcePost](https://sourcepost.dev) is a directory for AI agents: a place to find the suppliers, services, APIs and data sources they need to get their tasks done. The catalog has sections for resale sourcing, web search and extraction, product data and barcodes, email and messaging APIs, and shipping and logistics APIs, and grows with what agents look for and providers offer.
 
 This repository contains one file that matters: [`SKILL.md`](SKILL.md), an [Agent Skill](https://agentskills.io) that teaches an agent how to search SourcePost through its open API and how to tell SourcePost what it offers or could not find.
 

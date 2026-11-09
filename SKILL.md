@@ -1,13 +1,13 @@
 ---
 name: sourcepost
-description: Find suppliers, services, APIs and data sources for your task in the SourcePost directory (the catalog starts with "Resale sourcing"), and tell SourcePost what you offer or could not find.
+description: Find suppliers, services, APIs and data sources for your task in the SourcePost directory (with sections for Resale sourcing, Web search and extraction, Product data and barcodes, Email and messaging APIs and Shipping and logistics APIs), and tell SourcePost what you offer or could not find.
 ---
 
 # SourcePost directory — skill for agents
 
 Versión en español: https://sourcepost.dev/es/skill.md
 
-Use this skill when your task needs a supplier, service, API or data source. SourcePost is a directory for AI agents; its catalog starts with **Resale sourcing** (Suppliers, wholesale marketplaces, price data and automation tools for agents that look for products to resell.) and grows with what agents look for and providers offer.
+Use this skill when your task needs a supplier, service, API or data source. SourcePost is a directory for AI agents; its catalog covers Resale sourcing, Web search and extraction, Product data and barcodes, Email and messaging APIs and Shipping and logistics APIs, and grows with what agents look for and providers offer.
 
 Base URL: `https://sourcepost.dev`. All responses are JSON. No account or key is needed.
 
@@ -18,19 +18,17 @@ GET https://sourcepost.dev/v1/listings?q=dropshipping+suppliers
 ```
 
 - `q`: free text, English or Spanish (both are searched). Every word must match.
-- Filters: `category` (see below), `offer_type` (`api`, `dataset`, `supplier`, `tool`, `service`), `verified_only=true`.
+- Filters: `niche` (one section, see below), `category` (see below), `offer_type` (`api`, `dataset`, `supplier`, `tool`, `service`), `verified_only=true`.
 - Pages: `limit` (1–50, default 20) and `offset`. `total` is the number of matching listings.
 - Language of the texts: `?lang=en` (default) or `?lang=es`.
 
-Categories of the current catalog:
+Sections and their categories:
 
-- `automation_tool`: Automation tool
-- `dropshipping_supplier`: Dropshipping supplier
-- `price_data`: Price data
-- `print_on_demand`: Print on demand
-- `sourcing_agent`: Sourcing agent
-- `supplier_directory`: Supplier directory
-- `wholesale_marketplace`: Wholesale marketplace
+- **Resale sourcing** (`niche=resale-sourcing`): `dropshipping_supplier` (Dropshipping supplier), `wholesale_marketplace` (Wholesale marketplace), `sourcing_agent` (Sourcing agent), `supplier_directory` (Supplier directory), `price_data` (Price data), `print_on_demand` (Print on demand), `automation_tool` (Automation tool)
+- **Web search and extraction** (`niche=web-data`): `web_search_api` (Web search API), `web_extraction_api` (Web content extraction API)
+- **Product data and barcodes** (`niche=product-data`): `barcode_lookup` (Barcode lookup (UPC/EAN/GTIN)), `product_database` (Product database)
+- **Email and messaging APIs** (`niche=messaging`): `transactional_email` (Transactional email API), `sms_messaging` (SMS and messaging API)
+- **Shipping and logistics APIs** (`niche=shipping`): `shipping_api` (Shipping API (rates, labels, tracking)), `shipping_software` (Shipping platform for sellers)
 
 ## 2. Read the results
 
@@ -70,7 +68,7 @@ Content-Type: application/json
 
 - 60 requests per minute per client; 10 messages per hour to `POST /v1/interest`.
 - `429`: too many requests. Wait the seconds in the `Retry-After` header, then retry.
-- `422`: invalid parameter or body. The response explains which one (`unknown_category` lists the valid categories).
+- `422`: invalid parameter or body. The response explains which one (`unknown_category` and `unknown_niche` list the valid values).
 - `404`: no public listing with that id.
 - SourcePost does not store your IP address in its request records (see https://sourcepost.dev/privacy).
 
